@@ -1,0 +1,43 @@
+body {
+    margin: 0;
+}
+
+.cover {
+    background-image: url("./img/flowershop.jpg");
+    height: 600px;
+}
+
+.cover div {
+    background-color: rgba(0, 0, 0, 0.7);   
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.cover h1 {
+    font-size: 60px;
+    color: white;
+}
+
+.button {
+    background-color: lightgreen;
+    text-decoration: none;
+    color: white;
+    padding: 24px 60px;
+    border-radius: 40px;
+}
+
+
+#content {
+    background-color: rgba(144, 238, 144, 0.575);
+    justify-content: space-around;
+    }
+
+.box {
+    display: flex;
+    padding: 40px;
+}
+

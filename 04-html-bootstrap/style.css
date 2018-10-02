@@ -1,0 +1,182 @@
+html, body {
+    font-size: 12px;
+    width: 100%;
+    height: 100%;
+}
+
+.jumbotron {
+    background-color: rgba(0, 0, 0, 0);
+    width: 100%;
+}
+
+.jumbotron .header-content-inner {
+    width: 70%;
+    margin: 0 auto;
+}
+
+.btn {
+    border-radius: 40px;
+    font-size: 18px;
+    border: none;
+    padding: 15px;
+}
+
+hr {
+    border-width: 3px;
+    max-width: 50px;
+}
+/*header section*/
+
+nav {
+    border-bottom: 1px solid white;
+}
+
+header {
+    background-image: url('./img/header.jpg');
+    height: 100vh;
+    background-position: center;
+    background-size: cover;
+    text-align: center;
+}
+
+header .jumbotron {
+    color: white;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+header .jumbotron h1{
+    font-size: 65px;
+}
+
+header .jumbotron hr {
+    border-color: #f05f40;
+}
+
+header .jumbotron p {
+    opacity: 0.5;
+    font-size: 18px;
+}
+header .jumbotron .btn {
+    background-color: #f05f40;
+
+}
+
+/*about section*/
+#about {
+    background-color: #f05f40;
+    color: white;
+    height: 60vh;
+    display: flex;
+    align-items: center;
+
+}
+
+#about h2{
+    font-size: 32px;
+}
+
+
+#about hr{
+    border-color: white;
+}
+
+#about p{
+    opacity: 0.5;
+}
+
+#about .btn{
+    background: white;
+    color: black;
+}
+
+
+/*icons section*/
+
+#icons {
+    height: 60vh;
+    display: flex;
+    align-items: center;
+}
+
+#icons .title {
+    display: flex;
+    align-items: center;
+    height: 120px;
+}
+
+#icons hr {
+    border-color: #f05f40;
+
+}
+
+#icons i{
+    color: #f05f40;
+}
+
+#icons p {
+    opacity: 0.5;
+}
+
+/*portfolio section*/
+
+.no-padding {
+    padding: 0;
+}
+#portfolio .container-fluid {
+    padding: 0;
+}
+
+}
+#portfolio .row {
+    margin-right: -15px;
+    margin-left: -15px;
+}
+
+#portfolio .portfolio-box {
+    display: block;
+    position: relative;
+    margin: 0 auto;
+    max-width: 650px;
+}
+
+#portfolio .img-responsive {
+    max-width: 100%;
+    height: auto;
+}
+
+/*template section*/
+
+.template {
+    color: #fff;
+    background-color: #222;
+}
+
+.template h1 {
+    padding: 20px 0;
+}
+
+.template .btn {
+    background-color: #fff;
+    color: black;
+}
+
+/*callme section*/
+#callme {
+    height: 60vh;
+    display: flex;
+    align-items: center;
+}
+
+#callme hr {
+    border-color: #f05f40;
+}
+
+#callme p {
+    font-size: 18px;
+}
+
+#callme a {
+    color: #f05f40;
+}
