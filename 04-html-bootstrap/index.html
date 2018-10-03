@@ -7,25 +7,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" media="screen" href="./style.css" />
+    <link rel="stylesheet" type="text/css" href="./animated.css">
+    <link rel="stylesheet" type="text/css" href="./style.css" />
 </head>
-<body>
-    <nav class="navbar navbar-expand-lg fixed-top navbar-dark justify-content-between border-bottom-5">
+<body data-spy='scroll' data-target='.navbar'>
+    <nav class="navbar navbar-expand-lg fixed-top navbar-dark">
         <a href="#" class="navbar-brand">THE ONLY BOOTSTRAP PAGE</a>
-        <ul class="navbar-nav">
-            <li class="nav-item active">
-                <a href="#about" class="nav-link">ABOUT</a>
-            </li>
-            <li class="nav-item active">
-                <a href="#icons" class="nav-link">FOUR ICONS</a>
-            </li>
-            <li class="nav-item active">
-                <a href="#portfolio" class="nav-link">BULLSHIT</a>
-            </li>
-            <li class="nav-item active">
-                <a href="#callme" class="nav-link">CALL ME</a>
-            </li>
-        </ul>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" >
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarToggler">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a href="#about" class="nav-link">ABOUT</a>
+                </li>
+                <li class="nav-item active">
+                    <a href="#icons" class="nav-link">FOUR ICONS</a>
+                </li>
+                <li class="nav-item active">
+                    <a href="#portfolio" class="nav-link">BULLSHIT</a>
+                </li>
+                <li class="nav-item active">
+                    <a href="#callme" class="nav-link">CALL ME</a>
+                </li>
+            </ul>
+        </div>
     </nav>
     <header>
         <div class="jumbotron">
@@ -34,7 +42,7 @@
                     <h1>HEY LOOK, IT'S EVERY BOOTSTRAP WEBSITE EVER</h1>
                     <hr class="my-4">
                     <p>Take a look around at the same fucking bootstrap page you've seen ten million times before! Featuring all the same things as those pages!</p>
-                    <a href="#about" class="btn btn-primary btn-xl page-scroll">This button makes the page sroll</a>
+                    <a href="#contact" class="btn btn-primary btn-xl page-scroll">This button makes the page sroll</a>
                 </div>
             </div>
         </div>
@@ -46,44 +54,40 @@
                     <h2>Want to make an original website yourself?</h2>
                     <hr class="my-4">
                     <p>Forget that! Who would ever want to put in all of that effort for a website? Just open up your web browser and type "bootstrap template" into your favorite search engine, like Yahoo! or Bing, and you're on your way! There are hundreds of templates to choose from, but go ahead and pick this same exact template from the first result on google, edit a few lines, and you're on your way! No one will notice!</p>
-                    <a href="#about" class="btn btn-primary btn-xl page-scroll">GOOGLE THAT SHIT</a>
+                    <a href="" class="btn">GOOGLE THAT SHIT</a>
                 </div>
             </div>
         </div>        
     </section>
     <section id="icons">
-        <div class="container">
-            <div class="row title">
-                <div class="col-lg-12 text-center">
-                    <h1>So Fucking Creative</h1>
-                    <hr class="primary">
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-3  text-center">
-                    <div>
-                        <i class="fas fa-3x fa-globe-asia"></i>
+        <div class="container text-center">
+            <h1>So Fucking Creative</h1>
+            <hr class="my-4">
+            <div class="row no-gutters">
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="icon-box">
+                        <i class="fas fa-3x fa-globe-asia fa-spin"></i>
                         <h3>The Fucking Template</h3>
                         <p>Guaranteed to use the same fucking template that every other bootstrap website uses, downloaded straight from The Web™</p>
                     </div>
                 </div>
-                <div class="col-lg-3  text-center">
-                    <div>
-                        <i class="fas fa-3x fa-paper-plane"></i>
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="icon-box">
+                        <i class="fas fa-3x fa-paper-plane animated infinite bounceIn"></i>
                         <h3>This Set of Four Icons</h3>
                         <p>Look at this cool set of four icons describing different things about us! We use four, because it's the default.</p>
                     </div>
                 </div>
-                <div class="col-lg-3  text-center">
-                    <div>
-                        <i class="far fa-3x fa-thumbs-up"></i>
+                <div class="col-lg-3 col-md-6  text-center">
+                    <div class="icon-box">
+                        <i class="far fa-3x fa-thumbs-up animated infinite bounceInDown"></i>
                         <h3>Lots of effort</h3>
                         <p>We even changed some of the icons! We take the extra effort to make our designs truly original.</p>
                     </div>
                 </div>
-                <div class="col-lg-3  text-center">
-                    <div>
-                        <i class="far fa-3x fa-heart"></i>
+                <div class="col-lg-3 col-md-6   text-center">
+                    <div class="icon-box">
+                        <i class="far fa-3x fa-heart fa-spin animated infinite fadeInRight"></i>
                         <h3>Made with Love</h3>
                         <p>Because nothing says hard work and talent like editing a few lines of text.</p>
                     </div>
@@ -91,27 +95,31 @@
             </div>
         </div>
     </section>
-    <section id="portfolio" class="no-padding">
-        <div class="container-fluid">
+    <section id="portfolio">
+        <div class="container-fluid no-padding">
             <div class="row no-gutters">
-                <div class="col-lg-3">
+                <div class="col-lg-3 col-md-3 col-sm-6">
                     <div class="portfolio-box">
-                        <img src="./img/1.jpg" alt="" class="img-responsive">
+                        <img src="./img/1.jpg" alt="" class="img-fluid">
+                        <div class="overlay">ONE THING <span class="word">LOOK</span></div>
                     </div>
                 </div>
-                <div class="col-lg-3">
+                <div class="col-lg-3 col-md-3 col-sm-6">
                     <div class="portfolio-box">
-                        <img src="./img/2.jpg" alt="" class="img-responsive">
+                        <img src="./img/2.jpg" alt="" class="img-fluid">
+                        <div class="overlay">TWO THING <span class="word">AT</span></div>
                     </div>
                 </div>
-                <div class="col-lg-3">
+                <div class="col-lg-3 col-md-3 col-sm-6">
                     <div class="portfolio-box">
-                        <img src="./img/3.jpg" alt="" class="img-responsive">
+                        <img src="./img/3.jpg" alt="" class="img-fluid">
+                        <div class="overlay">THREE THING <span class="word">THIS</span></div>
                     </div>
                 </div>
-                <div class="col-lg-3">
+                <div class="col-lg-3 col-md-3 col-sm-6">
                     <div class="portfolio-box">
-                        <img src="./img/4.jpg" alt="" class="img-responsive">
+                        <img src="./img/4.jpg" alt="" class="img-fluid">
+                        <div class="overlay">FOUR THING <span class="word">BULSHIT</span></div>
                     </div>
                 </div>
             </div>
@@ -122,7 +130,7 @@
             <div class="container .header-content">
                 <div class="header-content-inner text-center">
                     <h1>Seriously, It's This Fucking Template !</h1>
-                    <a href="#about" class="btn btn-primary btn-xl page-scroll">THAT'S AMAZING</a>
+                    <a href="" class="btn">THAT'S AMAZING</a>
                 </div>
             </div>
         </div>   
@@ -132,21 +140,29 @@
             <div class="row">
                 <div class="col-lg-8 offset-lg-2 text-center">
                     <h1>My Contact Information</h1>
-                    <hr class="primary">
+                    <hr class="my-4">
                     <p>Here's my phone number and email address, because hey that's part of the template and why would you not include that on your webpage? You'd be a fool not to! I can't wait for all the job offers to come pouring in from all the companies wanting my insane website design skills.</p>
                     <p>Honestly this template does look really nice, though.</p>
                 </div>
                 <div class="col-lg-4 offset-lg-2 text-center">
-                    <i class="fas fa-3x fa-phone"></i>
-                    <p>+1-666-420-6969</p>
+                    <div class="icon-box">
+                        <i class="fas fa-3x fa-phone animated infinite jackInTheBox slower"></i>
+                        <p>+1-666-420-6969</p>        
+                    </div>
                 </div>
                 <div class="col-lg-4 text-center">
-                    <i class="fas fa-3x fa-envelope-open"></i>
-                    <p><a href="mailto:jkarbow@emich.edu">holy@shit.com</a>
-                    </p>
+                    <div class="icon-box">
+                        <i class="fas fa-3x fa-envelope-open animated infinite hinge"></i>
+                        <p><a href="mailto:jkarbow@emich.edu">holy@shit.com</a></p>        
+                    </div>
                 </div>
             </div>
         </div>
     </section>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="./smooth-scroll.min.js"></script>
+    <script src='./script.js'></script>
 </body>
 </html>
