@@ -15,6 +15,8 @@ var alphabet = {
     var sortArr = strNum.split('').sort();
     var transformArr = [];
     for (var i=0; i<sortArr.length; i++) {
+      console.log(sortArr[i]);
+      console.log(alphabet[(sortArr[i])]);
      transformArr.push(alphabet[(sortArr[i])]);
     }
     var reduceArr = transformArr.reduce(function(accumulator, str){
