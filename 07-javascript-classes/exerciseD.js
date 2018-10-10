@@ -30,3 +30,7 @@ class Monster {
 const monster1 = new Monster({name: 'Alien'});
 const monster2 = new Monster({name: 'Godzilla'});
 monster1.hero();
+
+function attack(monster) {
+    monster
+}
