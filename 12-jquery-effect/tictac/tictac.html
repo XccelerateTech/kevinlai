@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./style.css">
+    <title>TicTac</title>
+    <style>
+        h1{
+            text-align: center;
+        }
+        .container {
+            width: 600px;
+            height: 600px;
+            margin: 0 auto;
+        }
+        .row {
+            display: flex;
+        }
+        .box{
+            display: block;
+            width: 200px;
+            height: 200px;
+        }
+
+        .row .box:first-child {
+            border-right: 1px solid black;
+        }
+        .row .box:last-child {
+            border-left: 1px solid black;
+        }
+
+        .row:nth-child(2) {
+            border-top: 1px solid black;
+            border-bottom: 1px solid black;
+        }
+
+        
+    </style>
+</head>
+<body>
+    <div>
+        <h1>TIC TAC TOE</h1>
+    </div>
+    <div class="container">
+
+        <div class="row one">
+            <div class="box" id="1">
+            </div>
+            <div class="box" id="2">
+                
+            </div>
+            <div class="box" id="3">
+                
+            </div>
+        </div>
+        <div class="row two">
+            <div class="box" id="4">
+            </div>
+            <div class="box" id="5">
+                
+            </div>
+            <div class="box" id="6">
+                
+            </div>
+        </div>
+        <div class="row three">
+            <div class="box" id="7">
+                
+            </div>
+            <div class="box" id="8">
+                
+            </div>
+            <div class="box" id="9">
+                
+            </div>
+        </div>
+    </div>
+    <div id="won">
+        <p>GAME END</p>
+    </div>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+
+    var player1 = [];
+    var player2 = [];
+    var game = [];
+
+    var won = [123,456,789,147,258,369,159,357];
+    var count = 0;
+    $('.box').on('click', function(e) {
+        if (count < 9) {
+            console.log(this);
+            count+=1;
+        // console.log(count);
+        if (count % 2 == 1 ) {
+            player1.push(($($(this)).attr('id')));
+            console.log('even');
+            $(this).html(`<img class="hit" id=${count} src="./img/5a28b99690c454.483706711512618390593.png">`);
+        }
+        else if (count % 2 == 0){
+            player2.push(($($(this)).attr('id')));
+            console.log('odd');
+            $(this).html(`<img class="hit" id=${count} src="./img/kisspng-brush-painting-x-5abce95d1575a6.4029850615223299490879.png">`);
+        }
+        $($(this).children()[0]).addClass('hit');
+        } 
+
+        console.log(player1);
+        console.log(player2);
+        
+        sortP1 = player1.sort().join("");
+        sortP2 = player2.sort().join("");
+
+        for (var i=0; i< won.length; i++){
+
+            if (sortP1.indexOf(won[i]) != -1) {
+                console.log('P1 won');
+                $('#won').html('<p>Player1 Won</p>');
+                count = 9;
+            }
+            if (sortP2.indexOf(won[i]) != -1) {
+                console.log('P2 won');
+                $('#won').append('<p>Player2 Won</p>');
+                count = 9;
+            }
+        }
+
+            
+
+        // console.log(game);
+
+        // var sortGame = game.sort().join('');
+
+        // for(var i=0; i<won.length;i++) {
+        //     if (sortGame.indexOf(won[i]) != -1){
+        //         console.log('match');
+        //     }
+        // }
+
+
+        if (count == 9 ) {
+            console.log('end')
+            $('#won').addClass('won');
+        }
+
+    });
+
+
+</script>
+</html>

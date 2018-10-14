@@ -1,26 +1,21 @@
 var Pangram = function(string){
 
-            //toLowerCase() = lower case of the string
-            //split() = split the string to an array
-            //sort() = sort the order of a - z
-            //join() = join an array to a string 
-        this.string = string.toLowerCase().split("").sort().join("");;
+        this.string = string.toLowerCase();                     //toLowerCase() = lower case of the string
+
         this.isPangram = function isPangram() {
-            //letter of alphabet
-            var letter = 'abcdefghijklmnopqrstuvwxyz';
-            //count variable for validation
-            var count =0;
-            //loop over the string 
+            var letter = 'abcdefghijklmnopqrstuvwxyz';          //letters of alphabet
+
+            var count =0;                                       //count variable for validation
+
             for(var i = 0 ;i < this.string.length;i++){
-                //indexOf() returns the index  within the string of the first occurrence of the letter
-                //return -1 if the letter if not found or repeat
-                //if the index is positive number count 1
+                                                                //indexOf() returns the index  within the string of the first occurrence of the letter
+                                                                //return -1 if the letter if not found or repeat
+                                                                //if the index is positive number count 1
                 if(this.string.indexOf(letter[i]) != -1) {
                     count += 1;
                 }
             }
-            //test the count whether equal to 26 letter of the alphabet
-            if (count == 26) {
+            if (count == 26) {                                  //test the count whether equal to 26 letter of the alphabet
                 return true;
             } else return false;
         }
@@ -28,6 +23,21 @@ var Pangram = function(string){
     }
 
     module.exports = Pangram;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // function Pangram (str) {
 //     this.str = str;
@@ -51,6 +61,6 @@ var Pangram = function(string){
 //         }
 //     };
 // }
-//     module.exports = Pangram;
-// const str1 = new Pangram('zxxxxxx');
-// str1.isPangram();
+    module.exports = Pangram;
+const str1 = new Pangram('zxxxxxx');
+str1.isPangram();
