@@ -78,7 +78,7 @@
         </div>
     </div>
     <div id="won">
-        <p>GAME END</p>
+        
     </div>
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -90,7 +90,7 @@
 
     var won = [123,456,789,147,258,369,159,357];
     var count = 0;
-    $('.box').on('click', function(e) {
+    $('.box').on('click', function() {
         if (count < 9) {
             console.log(this);
             count+=1;
@@ -100,7 +100,7 @@
             console.log('even');
             $(this).html(`<img class="hit" id=${count} src="./img/5a28b99690c454.483706711512618390593.png">`);
         }
-        else if (count % 2 == 0){
+        else{
             player2.push(($($(this)).attr('id')));
             console.log('odd');
             $(this).html(`<img class="hit" id=${count} src="./img/kisspng-brush-painting-x-5abce95d1575a6.4029850615223299490879.png">`);
@@ -123,7 +123,7 @@
             }
             if (sortP2.indexOf(won[i]) != -1) {
                 console.log('P2 won');
-                $('#won').append('<p>Player2 Won</p>');
+                $('#won').html('<p>Player2 Won</p>');
                 count = 9;
             }
         }
@@ -143,7 +143,7 @@
 
         if (count == 9 ) {
             console.log('end')
-            $('#won').addClass('won');
+            $('#won').append('<p>GAME END</p>').addClass('won');
         }
 
     });

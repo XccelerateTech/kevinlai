@@ -1,5 +1,5 @@
 // $(function() {
-//     function informMe(endpoint,   value){
+//     function informMe(endpoint, value){
 
     
 //         $.ajax({
@@ -108,6 +108,7 @@ $('#form').on('submit', function(e) {
     callApi(new Date(), data, today => { //kind of call back hell (hard to read and hard to understand what closes where)
         console.log('This is for today!')
         console.log(today.sunrise);
+        console.log(new Date(today.sunrise))
 
 
         callApi(oldDay,data,yesterday=>{ //the callback is today, yesterday and tomorrow here.
@@ -118,6 +119,7 @@ $('#form').on('submit', function(e) {
             callApi(nextDay,data,tomorrow =>{
                 console.log('This is for tomorrow!')
                 console.log(new Date(tomorrow.sunrise))
+                console.log(new Date());
 
 
                 var sunrisesTime = [new Date(today.sunrise),new Date(yesterday.sunrise),new Date(tomorrow.sunrise)]; //declare an array, sunrisesTime and store three dates, today.sunrise, yesterday.sunrise and tomorrow.sunrise
