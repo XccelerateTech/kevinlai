@@ -3,3 +3,9 @@ module.exports = function AuthChallenger(users){
         return typeof users[username] !== 'undefined' && users[username] === password;
     }
 }
+
+//query.then((rows)=>{
+//     if(rows.length){
+//         callback()
+//     }
+// })

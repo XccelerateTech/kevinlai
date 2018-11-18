@@ -1,3 +1,4 @@
+//compile handlebars to html document then can add to html document
 var notesTemplate = Handlebars.compile(`
     {{#each notes}}
     <div class="note">
@@ -7,7 +8,9 @@ var notesTemplate = Handlebars.compile(`
     {{/each}}
 `);
 
+
 function reloadNotes(notes) {
+    
     $('#notes').html(notesTemplate({notes: notes}));
 }
 
@@ -31,6 +34,7 @@ $(function() {
         }
         $('textarea[name=note]').val('');
         axios.post('/api/notes/', {
+            //reference to NoteRouter post reqest req.body.note
             note: val
         }).then(function(res) {
             reloadNotes(res.data);
@@ -63,3 +67,5 @@ $(function() {
         });
     });
 });
+
+

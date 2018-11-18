@@ -1,0 +1,18 @@
+{
+  "name": "033-knex-js",
+  "version": "1.0.0",
+  "description": "",
+  "main": "knex.js",
+  "dependencies": {
+    "knex": "^0.15.2",
+    "pg": "^7.6.1"
+  },
+  "devDependencies": {
+    "csv-reader": "^1.0.3"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

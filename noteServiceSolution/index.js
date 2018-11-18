@@ -43,10 +43,10 @@ app.get('/', function (req, res, next){
 });
 
 app.get('/', (req,res)=>{
-    console.log(req.auth)
+    // console.log(req.auth)
     noteService.list(req.auth.user).then(function(notes){
         
-    console.log(notes)
+    // console.log(notes)
 
     res.render('index', {
         user: req.auth.user,

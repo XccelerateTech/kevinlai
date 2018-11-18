@@ -1,10 +1,11 @@
 const fs = require('fs');
 
 class NoteService {
+    //knex
     constructor(file) {
         this.file = file;
+        //this.knex=knex
         this.initPromise = null;
-
         this.init()
     }
 
@@ -53,6 +54,10 @@ class NoteService {
     }
 
     add(note, user){
+        //let query = this.knex
+        // .select('id')
+        // .from('user')
+        // .where('user.name', user)
         return this.init().then(()=>{
             if(typeof this.notes[user] === 'undefined'){
                 this.notes[user] = [];
@@ -70,6 +75,7 @@ class NoteService {
                     if(typeof this.notes[user] === 'undefined'){
                         return [];
                     } else {
+                        // console.log(this.notes)
                         return this.notes[user];
                     }
                 });
@@ -108,3 +114,7 @@ class NoteService {
 }
 
 module.exports = NoteService;
+// const noteService = new NoteService(__dirname + '/' + 'notes.json');
+// noteService.list().then((data)=>{
+//     console.log(data)
+// });

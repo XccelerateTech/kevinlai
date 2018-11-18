@@ -5,9 +5,9 @@ exports.up = function(knex, Promise) {
         table.string('name');
         table.string('email');
         table.string('password');
+        table.string('gender');
         table.boolean('active');
         table.timestamps(false, true);
-  
     });
   };
   

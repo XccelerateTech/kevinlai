@@ -51,11 +51,18 @@ class NoteRouter {
         .then((notes)=> res.json(notes))
         .catch((err)=> res.status(500).json(err));
     }
-
+    
     post(req, res) {
+        //reference to NoteService add method to write file
         return this.noteService.add(req.body.note, req.auth.user)
-            .then(() => this.noteService.list(req.auth.user))
-            .then((notes) => res.json(notes))
+            //reference to NoteService read updated file 
+            .then(() => this.noteService.list(req.auth.user)
+            )
+            //post updated notes file into json format
+            .then((notes) => 
+                //referene to NoteService init() => this.read() => this.notes
+                res.json(notes)
+           )
             .catch((err) => res.status(500).json(err));
     }
 
