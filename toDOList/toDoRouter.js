@@ -16,8 +16,9 @@ class ToDoRouter {
     }
 
     get(req, res){
+        console.log('get')
         return this.toDoService.list()
-        .then((data)=> res.json(data))
+        .then((data)=> re(data))
         .catch((err)=> res.status(500).json(err));
     }
 
