@@ -53,11 +53,22 @@ class ToDoService {
         })
     }
 
-    add(note){
+    add(todo){
         return this.init().then(()=>{
-            this.todo.toDoList.push(note)
+            this.todo.toDoList.push(todo)
             return this.write();
         });
+    }
+    //index, todo from toDoRouter put()
+    update(index, todo){
+        //this.init => read json file => promise
+        return this.init().then(()=>{
+            //match client todoList to server todoList
+            this.todo.toDoList[index]=todo;
+
+            //write updated todoList
+            return this.write();
+        })
     }
 
     remove(index){
