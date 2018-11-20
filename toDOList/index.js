@@ -3,24 +3,6 @@ const fs = require('fs');
 const path = require('path');
 const hb = require('express-handlebars');
 const bodyParser = require('body-parser');
-const knex = require('knex')({
-    client: 'postgresql',
-    connection: {
-        database: "todolist",
-        user: "postgres",
-        password: "160693"
-    }
-});
-
-// let query = knex.select('content').from('users').innerJoin('lists','lists.users_id', 'users.id');
-
-// console.log(query.toSQL())
-
-// query.then((rows)=>{
-//     console.log(rows);
-// }).catch((err)=>{
-//     console.log(err)
-// })
 
 const app = express();
 
@@ -35,20 +17,22 @@ app.use(bodyParser.urlencoded({extended:false}))
 app.use(bodyParser.json());
 
 
-let todoService = new toDoService(knex);
+let todoService = new toDoService(path.join(__dirname, 'toDo.json'));
 
 app.get('/', (req,res,next)=>{
     console.log('getting')
-
+    todoService.list().then((notes)=>{
+        // console.log(notes.toDoList);
+    })
     next()
 })
 
 app.get('/', (req,res)=>{
     todoService.list().then((data)=>{
-        console.log(data)
+        // console.log("index.js: "+data)
         res.render('index',{
             //reference to index.handlebars
-            toDo: data.map(element => element.content)
+            toDo: data
         });
 
     });
