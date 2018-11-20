@@ -60,5 +60,22 @@ $(function(){
             alert(e);
         });
     })
+
+    $('#toDo').on('blur', 'textarea', function(evt){
+        beginSaving(evt.currentTarget);
+        //req.params.id = :id
+        axios.put('/api/todo/' + $(evt.currentTarget).data('id'),{
+            //request.body = todo: value
+            todo: $(evt.currentTarget).val()
+            //response updated todoList
+        }).then(function(res){
+            endSaving(evt.currentTarget);
+            //reload updated list
+            reloadList(res.data);
+        }).catch(function(e) {
+            endSaving(evt.currentTarget);
+            alert(e);
+        });
+    })
 })
 

@@ -1,8 +1,9 @@
 const fs = require('fs');
 
+
 class ToDoService {
-    constructor(file){
-        this.file = file;
+    constructor(knex){
+        this.knex = knex;
         this.initPromise = null;
         this.init();
     }
@@ -27,37 +28,57 @@ class ToDoService {
 
     read(){
         return new Promise((resolve, reject)=>{
-            fs.readFile(this.file, 'utf-8', (err, data)=>{
-                if(err){
-                    reject(err);
-                }
-                try{
-                    this.todo = JSON.parse(data);
-                } catch(e){
-                    return reject(e);
-                }
+            let query = this.knex.select('content').from('users').innerJoin('lists','lists.users_id', 'users.id');
+            
+            query.then((rows)=>{
+                this.todo = rows
+                
+            }).catch((err)=>{
+                reject(err)
+            })
+            
+            // fs.readFile(this.file, 'utf-8', (err, data)=>{
+            //     if(err){
+            //         reject(err);
+            //     }
+            //     try{
+            //         this.todo = JSON.parse(data);
+            //     } catch(e){
+            //         return reject(e);
+            //     }
                 return resolve(this.todo);
-            })
+            // })
         })
     }
 
-    write(){
-        return new Promise((resolve, reject)=>{
-            fs.writeFile(this.file, JSON.stringify(this.todo), (err)=>{
-                if(err){
-                    return reject(err);
-                } else {
-                    resolve(this.todo);
-                }
-            })
-        })
-    }
+    // write(){
+    //     return new Promise((resolve, reject)=>{
+    //         fs.writeFile(this.file, JSON.stringify(this.todo), (err)=>{
+    //             if(err){
+    //                 return reject(err);
+    //             } else {
+    //                 resolve(this.todo);
+    //             }
+    //         })
+    //     })
+    // }
 
-    add(note){
+    add(todo){
         return this.init().then(()=>{
-            this.todo.toDoList.push(note)
+            this.todo.toDoList.push(todo)
             return this.write();
         });
+    }
+    //index, todo from toDoRouter put()
+    update(index, todo){
+        //this.init => read json file => promise
+        return this.init().then(()=>{
+            //match client todoList to server todoList
+            this.todo.toDoList[index]=todo;
+
+            //write updated todoList
+            return this.write();
+        })
     }
 
     remove(index){
@@ -74,7 +95,7 @@ class ToDoService {
         return this.init()
         .then(()=> this.read())
         .then(()=> {
-            return this.todo.toDoList;
+            return this.todo;
         })
     }
 
