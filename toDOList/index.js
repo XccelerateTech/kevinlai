@@ -39,13 +39,11 @@ let todoService = new toDoService(knex);
 
 app.get('/', (req,res,next)=>{
     console.log('getting')
-
     next()
 })
 
 app.get('/', (req,res)=>{
     todoService.list().then((data)=>{
-        console.log(data)
         res.render('index',{
             //reference to index.handlebars
             toDo: data.map(element => element.content)

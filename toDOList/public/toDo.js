@@ -11,7 +11,7 @@ var todoTemplate = Handlebars.compile(`
 function reloadList(todo){
     //reference index.handlebars each toDo
     //pass parameter to template
-    $('#toDo').html(todoTemplate({toDo: todo}));
+    $('#toDo').html(todoTemplate({toDo: todo.map(element=>element.content)}));
 }
 
 function beginSaving(target){
@@ -38,7 +38,7 @@ $(function(){
         $('textarea[name=toDo]').val('');
         //axios allow automatic transformations to convert the respon to JSON data (val = > data)
         axios.post('/api/todo/',{
-            todo: val
+            content: val
         }).then(function(res){
             //updated todo list array (this.todo.toDoList)
             reloadList(res.data)
@@ -53,7 +53,7 @@ $(function(){
         .then(function(res){
             endSaving(evt.currentTarget);
             //array after removed
-            reloadList(res.data.toDoList)
+            reloadList(res.data)
             // console.log(res.data)
         }).catch(function(e) {
             endSaving(evt.currentTarget);
