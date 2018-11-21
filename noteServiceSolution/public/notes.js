@@ -10,7 +10,7 @@ var notesTemplate = Handlebars.compile(`
 
 
 function reloadNotes(notes) {
-    
+    console.log(notes)
     $('#notes').html(notesTemplate({notes: notes}));
 }
 
