@@ -1,11 +1,13 @@
 var todoTemplate = Handlebars.compile(`
-        {{#each toDo}}
-        <div class="toDo">
-            <span class="input"><textarea data-id="{{ this.id }}">{{ this.content }}</textarea></span>
+    {{#each toDo}}
+    <div class="toDo">
+        <span class="input"><textarea data-id="{{ this.id }}">{{ this.content }}</textarea></span>
 
-            <button class="remove btn btn-xs" data-id="{{ this.id}}"><i class="fa fa-trash" aria-hidden="true"></i></button>
-        </div>
-        {{/each}}
+        <button class="remove btn btn-xs" data-id="{{ this.id}}"><i class="fa fa-trash" aria-hidden="true"></i></button>
+
+        <span>Complete: {{this.complete}}</span>
+    </div>
+    {{/each}}
 `);
 
 function reloadList(todo){

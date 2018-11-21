@@ -27,9 +27,9 @@ class ToDoService {
 
     read(){
         return new Promise((resolve, reject)=>{
-            let query = this.knex.select('content', 'lists.id').from('users').innerJoin('lists','lists.users_id', 'users.id');
+            let query = this.knex.select('content', 'lists.id', 'complete').from('users').innerJoin('lists','lists.users_id', 'users.id');
 
-
+            // console.log(query.toSQL())
             query.then((rows)=>{
                 // console.log(rows)
                 this.todo = rows;
@@ -67,7 +67,7 @@ class ToDoService {
         return new Promise((resolve, reject)=>{
             let query = this.knex.select('*').from('lists').insert({users_id: 1, content: todo.content, complete: false});
             // this.knex.raw('INNSERT ')
-            // console.log(query.toSQL())
+            console.log(query.toSQL())
             query.then(()=>{
                 this.todo.push(todo)
                 resolve(this.read())
