@@ -46,7 +46,9 @@ app.get('/', (req,res)=>{
     todoService.list().then((data)=>{
         res.render('index',{
             //reference to index.handlebars
-            toDo: data.map(element => element.content)
+            toDo: data
+            // id: data.id
+            // toDo: data.map(element => element.content)
         });
 
     });

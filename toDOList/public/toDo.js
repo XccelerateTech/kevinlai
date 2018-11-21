@@ -1,9 +1,9 @@
 var todoTemplate = Handlebars.compile(`
         {{#each toDo}}
         <div class="toDo">
-            <span class="input"><textarea data-id="{{ @index }}">{{ this }}</textarea></span>
+            <span class="input"><textarea data-id="{{ this.id }}">{{ this.content }}</textarea></span>
 
-            <button class="remove btn btn-xs" data-id="{{ @index }}"><i class="fa fa-trash" aria-hidden="true"></i></button>
+            <button class="remove btn btn-xs" data-id="{{ this.id}}"><i class="fa fa-trash" aria-hidden="true"></i></button>
         </div>
         {{/each}}
 `);
@@ -11,7 +11,8 @@ var todoTemplate = Handlebars.compile(`
 function reloadList(todo){
     //reference index.handlebars each toDo
     //pass parameter to template
-    $('#toDo').html(todoTemplate({toDo: todo.map(element=>element.content)}));
+    // console.log(todo)
+    $('#toDo').html(todoTemplate({toDo: todo.map(element=>element)}));
 }
 
 function beginSaving(target){

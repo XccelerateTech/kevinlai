@@ -27,11 +27,14 @@ class ToDoService {
 
     read(){
         return new Promise((resolve, reject)=>{
-            let query = this.knex.select('content').from('users').innerJoin('lists','lists.users_id', 'users.id');
+            let query = this.knex.select('content', 'lists.id').from('users').innerJoin('lists','lists.users_id', 'users.id');
 
 
             query.then((rows)=>{
+                // console.log(rows)
                 this.todo = rows;
+                return resolve(this.todo);
+
             }).catch((err)=>{
                 reject(err)
             })
@@ -43,8 +46,7 @@ class ToDoService {
             //         this.todo = JSON.parse(data);
             //     } catch(e){
             //         return reject(e);
-            //     }z
-                return resolve(this.todo);
+            //     }
             // })
         })
     }
@@ -65,10 +67,10 @@ class ToDoService {
         return new Promise((resolve, reject)=>{
             let query = this.knex.select('*').from('lists').insert({users_id: 1, content: todo.content, complete: false});
             // this.knex.raw('INNSERT ')
-    
+            // console.log(query.toSQL())
             query.then(()=>{
                 this.todo.push(todo)
-                resolve(this.todo)
+                resolve(this.read())
             }).catch((err)=>{
                 reject(err)
             })
@@ -97,12 +99,13 @@ class ToDoService {
             // console.log('remove')
 
             return new Promise((resolve, reject)=>{
-                console.log(this.todo[index].content)
-                let query = this.knex('lists').where('content',this.todo[index].content).del()
+                let removeID = this.todo.filter(element => element.id == index)
+                let query = this.knex('lists').where('id',removeID[0].id).del()
                query.then(()=>{
-                this.todo.splice(index, 1);
-
-                   resolve(this.todo);
+                    let removeIndex = this.todo.map(element => element.id).indexOf(Number(index));
+                    
+                    this.todo.splice(removeIndex, 1);
+                    resolve(this.todo);
                }).catch((err)=>{
                 reject(err)
                 })
